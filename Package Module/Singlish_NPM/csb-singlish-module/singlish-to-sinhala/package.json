@@ -1,0 +1,36 @@
+{
+  "name": "singlish-to-sinhala",
+  "version": "1.5.0",
+  "description": "Real-time Singlish to Sinhala text conversion library for web input fields",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/singlish-to-sinhala.min.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node --test"
+  },
+  "keywords": [
+    "sinhala",
+    "singlish",
+    "transliteration",
+    "input-method",
+    "i18n",
+    "csb_developments",
+    "sri-lanka"
+  ],
+  "author": "Nimnada_NK",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "rollup": "^2.79.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {}
+}

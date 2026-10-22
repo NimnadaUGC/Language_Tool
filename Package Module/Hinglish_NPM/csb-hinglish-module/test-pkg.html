@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hinglish to Hindi Test</title>
+    
+    <script>
+        window.HINGLISH_NO_AUTO_INIT = true;
+    </script>
+
+    <!-- Include the CSS file -->
+    <link rel="stylesheet" href="hinglish-to-hindi/dist/hindi-toggle.css">
+    
+    <!-- Include the JavaScript file -->
+    <script src="hinglish-to-hindi/dist/hinglish-to-hindi.min.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .test-area {
+            margin: 20px 0;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .instructions {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hinglish to Hindi Converter Test</h1>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <p>1. Click the "हिंदी" toggle button in the bottom right corner to enable Hindi typing</p>
+        <p>2. Type Hinglish text in the input fields below</p>
+        <p>3. The text will automatically convert to Hindi</p>
+    </div>
+    
+    <div class="test-area">
+        <h3>Single Line Input Test:</h3>
+        <input type="text" placeholder="Type Hinglish here...">
+    </div>
+    
+    <div class="test-area">
+        <h3>Multi Line Input Test:</h3>
+        <textarea placeholder="Type Hinglish here..."></textarea>
+    </div>
+
+    <script>
+        // Initialize the Hinglish to Hindi converter
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize with default settings
+            window.hindiConverter = window.HinglishToHindi({
+                autoAddToggle: true,
+                togglePosition: 'bottom-right',
+                startEnabled: false,
+                placement: {
+                    offsetX: 20,
+                    offsetY: 20,
+                    smartFit: true
+                }
+            });
+        });
+    </script>
+</body>
+</html>

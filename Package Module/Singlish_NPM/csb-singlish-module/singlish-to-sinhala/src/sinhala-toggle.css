@@ -1,0 +1,321 @@
+/* Sinhala Toggle Button Styles */
+.sinhala-toggle-container {
+  --sinhala-toggle-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sinhala-toggle-base-font-size: 14px;
+  --sinhala-toggle-background: rgba(35, 35, 35, 0.88);
+  --sinhala-toggle-text-color: #ffffff;
+  --sinhala-toggle-accent-color: #129cff;
+  --sinhala-toggle-muted-color: rgba(255, 255, 255, 0.62);
+  --sinhala-toggle-border-color: rgba(255, 255, 255, 0.22);
+  --sinhala-toggle-off-color: #555555;
+  --sinhala-toggle-radius: 28px;
+  --sinhala-toggle-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+
+  position: fixed !important;
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+  max-width: calc(100vw - 24px);
+  box-sizing: border-box;
+  padding: 8px 11px 8px 14px;
+  color: var(--sinhala-toggle-text-color);
+  background: var(--sinhala-toggle-background);
+  border: 1px solid var(--sinhala-toggle-border-color);
+  border-radius: var(--sinhala-toggle-radius);
+  box-shadow: var(--sinhala-toggle-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--sinhala-toggle-font-family);
+  font-size: var(--sinhala-toggle-base-font-size);
+  line-height: 1;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.sinhala-toggle-container,
+.sinhala-toggle-container * {
+  box-sizing: border-box;
+}
+
+.sinhala-toggle-container:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+}
+
+.sinhala-toggle-label {
+  min-width: 0;
+  color: var(--sinhala-toggle-text-color);
+  font-size: 1em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sinhala-switch {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 26px;
+}
+
+.sinhala-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.sinhala-slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background-color: var(--sinhala-toggle-off-color);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.sinhala-slider::before {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease;
+}
+
+.sinhala-switch input:checked + .sinhala-slider {
+  background: var(--sinhala-toggle-accent-color);
+}
+
+.sinhala-switch input:checked + .sinhala-slider::before {
+  transform: translateX(22px);
+}
+
+.sinhala-switch input:focus-visible + .sinhala-slider,
+.sinhala-settings-button:focus-visible,
+.sinhala-speed-button:focus-visible {
+  outline: 2px solid var(--sinhala-toggle-accent-color);
+  outline-offset: 3px;
+}
+
+.sinhala-settings-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--sinhala-toggle-text-color);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sinhala-settings-button:hover,
+.sinhala-settings-button[aria-expanded="true"] {
+  color: var(--sinhala-toggle-accent-color);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.sinhala-speed-popup {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  display: none;
+  width: 236px;
+  max-width: calc(100vw - 24px);
+  padding: 12px;
+  color: var(--sinhala-toggle-text-color);
+  background: var(--sinhala-toggle-background);
+  border: 1px solid var(--sinhala-toggle-border-color);
+  border-radius: 14px;
+  box-shadow: var(--sinhala-toggle-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100000;
+}
+
+.sinhala-position-top-left .sinhala-speed-popup,
+.sinhala-position-top-right .sinhala-speed-popup {
+  top: calc(100% + 10px);
+  bottom: auto;
+}
+
+.sinhala-position-bottom-left .sinhala-speed-popup,
+.sinhala-position-top-left .sinhala-speed-popup {
+  right: auto;
+  left: 0;
+}
+
+.sinhala-speed-popup.active {
+  display: block;
+  animation: sinhalaFadeIn 0.18s ease-out;
+}
+
+@keyframes sinhalaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sinhala-speed-content h4 {
+  margin: 0 0 10px;
+  color: var(--sinhala-toggle-text-color);
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.sinhala-speed-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.sinhala-speed-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 58px;
+  gap: 6px;
+  padding: 7px 5px;
+  color: var(--sinhala-toggle-muted-color);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.79em;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.sinhala-speed-button:hover {
+  color: var(--sinhala-toggle-text-color);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.sinhala-speed-button.active {
+  color: var(--sinhala-toggle-accent-color);
+  border-color: color-mix(in srgb, var(--sinhala-toggle-accent-color) 55%, transparent);
+  background: color-mix(in srgb, var(--sinhala-toggle-accent-color) 16%, transparent);
+}
+
+.sinhala-speed-icon {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 24px;
+  height: 18px;
+  gap: 3px;
+}
+
+.sinhala-speed-icon span {
+  display: block;
+  width: 5px;
+  min-height: 5px;
+  background: currentColor;
+  border-radius: 999px;
+  opacity: 0.32;
+}
+
+.sinhala-speed-icon span:nth-child(1) {
+  height: 7px;
+}
+
+.sinhala-speed-icon span:nth-child(2) {
+  height: 12px;
+}
+
+.sinhala-speed-icon span:nth-child(3) {
+  height: 17px;
+}
+
+.sinhala-speed-icon span.is-on {
+  opacity: 1;
+}
+
+.sinhala-speed-meter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.sinhala-speed-meter-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
+.sinhala-speed-meter[data-speed="slow"] .sinhala-speed-meter-bar:nth-child(-n + 1),
+.sinhala-speed-meter[data-speed="moderate"] .sinhala-speed-meter-bar:nth-child(-n + 2),
+.sinhala-speed-meter[data-speed="fast"] .sinhala-speed-meter-bar:nth-child(-n + 3) {
+  background: var(--sinhala-toggle-accent-color);
+}
+
+.sinhala-speed-description {
+  min-height: 16px;
+  margin-top: 9px;
+  color: var(--sinhala-toggle-muted-color);
+  font-size: 0.82em;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+@supports not (color: color-mix(in srgb, #000 50%, transparent)) {
+  .sinhala-speed-button.active {
+    border-color: var(--sinhala-toggle-accent-color);
+    background: rgba(18, 156, 255, 0.14);
+  }
+}
+
+@media (max-width: 420px) {
+  .sinhala-toggle-container {
+    gap: 8px;
+    padding: 7px 9px 7px 12px;
+  }
+
+  .sinhala-switch {
+    width: 44px;
+    height: 24px;
+  }
+
+  .sinhala-slider::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sinhala-switch input:checked + .sinhala-slider::before {
+    transform: translateX(20px);
+  }
+
+  .sinhala-settings-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sinhala-speed-popup {
+    width: min(228px, calc(100vw - 24px));
+  }
+}

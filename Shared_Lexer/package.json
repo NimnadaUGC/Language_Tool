@@ -1,0 +1,7 @@
+{
+  "name": "@csb/multilingual-lexer-core",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Shared zero-dependency maximal-munch matcher for CSB multilingual language tools"
+}

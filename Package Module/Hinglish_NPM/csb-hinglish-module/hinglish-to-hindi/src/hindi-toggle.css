@@ -1,0 +1,322 @@
+/* Hindi Toggle Button Styles */
+.hindi-toggle-container {
+  --hindi-toggle-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --hindi-toggle-base-font-size: 14px;
+  --hindi-toggle-background: rgba(35, 35, 35, 0.88);
+  --hindi-toggle-text-color: #ffffff;
+  --hindi-toggle-accent-color: #129cff;
+  --hindi-toggle-muted-color: rgba(255, 255, 255, 0.62);
+  --hindi-toggle-border-color: rgba(255, 255, 255, 0.22);
+  --hindi-toggle-off-color: #555555;
+  --hindi-toggle-radius: 28px;
+  --hindi-toggle-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+
+  position: fixed !important;
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+  max-width: calc(100vw - 24px);
+  box-sizing: border-box;
+  padding: 8px 11px 8px 14px;
+  color: var(--hindi-toggle-text-color);
+  background: var(--hindi-toggle-background);
+  border: 1px solid var(--hindi-toggle-border-color);
+  border-radius: var(--hindi-toggle-radius);
+  box-shadow: var(--hindi-toggle-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--hindi-toggle-font-family);
+  font-size: var(--hindi-toggle-base-font-size);
+  line-height: 1;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.hindi-toggle-container,
+.hindi-toggle-container * {
+  box-sizing: border-box;
+}
+
+.hindi-toggle-container:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+}
+
+.hindi-toggle-label {
+  min-width: 0;
+  color: var(--hindi-toggle-text-color);
+  font-size: 1em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hindi-switch {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 26px;
+}
+
+.hindi-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.hindi-slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background-color: var(--hindi-toggle-off-color);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.hindi-slider::before {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease;
+}
+
+.hindi-switch input:checked + .hindi-slider {
+  background: var(--hindi-toggle-accent-color);
+}
+
+.hindi-switch input:checked + .hindi-slider::before {
+  transform: translateX(22px);
+}
+
+.hindi-switch input:focus-visible + .hindi-slider,
+.hindi-settings-button:focus-visible,
+.hindi-speed-button:focus-visible {
+  outline: 2px solid var(--hindi-toggle-accent-color);
+  outline-offset: 3px;
+}
+
+.hindi-settings-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--hindi-toggle-text-color);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hindi-settings-button:hover,
+.hindi-settings-button[aria-expanded="true"] {
+  color: var(--hindi-toggle-accent-color);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.hindi-speed-popup {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  display: none;
+  width: 236px;
+  max-width: calc(100vw - 24px);
+  padding: 12px;
+  color: var(--hindi-toggle-text-color);
+  background: var(--hindi-toggle-background);
+  border: 1px solid var(--hindi-toggle-border-color);
+  border-radius: 14px;
+  box-shadow: var(--hindi-toggle-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2147483647;
+}
+
+.hindi-position-top-left .hindi-speed-popup,
+.hindi-position-top-right .hindi-speed-popup {
+  top: calc(100% + 10px);
+  bottom: auto;
+}
+
+.hindi-position-bottom-left .hindi-speed-popup,
+.hindi-position-top-left .hindi-speed-popup {
+  right: auto;
+  left: 0;
+}
+
+.hindi-speed-popup.active {
+  display: block;
+  animation: hindiFadeIn 0.18s ease-out;
+}
+
+@keyframes hindiFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hindi-speed-content h4 {
+  margin: 0 0 10px;
+  color: var(--hindi-toggle-text-color);
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.hindi-speed-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.hindi-speed-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 58px;
+  gap: 6px;
+  padding: 7px 5px;
+  color: var(--hindi-toggle-muted-color);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.79em;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hindi-speed-button:hover {
+  color: var(--hindi-toggle-text-color);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.hindi-speed-button.active {
+  color: var(--hindi-toggle-accent-color);
+  border-color: color-mix(in srgb, var(--hindi-toggle-accent-color) 55%, transparent);
+  background: color-mix(in srgb, var(--hindi-toggle-accent-color) 16%, transparent);
+}
+
+.hindi-speed-icon {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 24px;
+  height: 18px;
+  gap: 3px;
+}
+
+.hindi-speed-icon span {
+  display: block;
+  width: 5px;
+  min-height: 5px;
+  background: currentColor;
+  border-radius: 999px;
+  opacity: 0.32;
+}
+
+.hindi-speed-icon span:nth-child(1) {
+  height: 7px;
+}
+
+.hindi-speed-icon span:nth-child(2) {
+  height: 12px;
+}
+
+.hindi-speed-icon span:nth-child(3) {
+  height: 17px;
+}
+
+.hindi-speed-icon span.is-on {
+  opacity: 1;
+}
+
+.hindi-speed-meter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.hindi-speed-meter-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
+.hindi-speed-meter[data-speed="slow"] .hindi-speed-meter-bar:nth-child(-n + 1),
+.hindi-speed-meter[data-speed="moderate"] .hindi-speed-meter-bar:nth-child(-n + 2),
+.hindi-speed-meter[data-speed="fast"] .hindi-speed-meter-bar:nth-child(-n + 3) {
+  background: var(--hindi-toggle-accent-color);
+}
+
+.hindi-speed-description {
+  min-height: 16px;
+  margin-top: 9px;
+  color: var(--hindi-toggle-muted-color);
+  font-size: 0.82em;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+@supports not (color: color-mix(in srgb, #000 50%, transparent)) {
+  .hindi-speed-button.active {
+    border-color: var(--hindi-toggle-accent-color);
+    background: rgba(18, 156, 255, 0.14);
+  }
+}
+
+@media (max-width: 420px) {
+  .hindi-toggle-container {
+    gap: 8px;
+    padding: 7px 9px 7px 12px;
+  }
+
+  .hindi-switch {
+    width: 44px;
+    height: 24px;
+  }
+
+  .hindi-slider::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hindi-switch input:checked + .hindi-slider::before {
+    transform: translateX(20px);
+  }
+
+  .hindi-settings-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hindi-speed-popup {
+    width: min(228px, calc(100vw - 24px));
+  }
+}
