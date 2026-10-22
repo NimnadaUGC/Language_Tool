@@ -1,7 +1,9 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+var deploymentBase = '/ctc_tool/';
 export default defineConfig({
+    base: deploymentBase,
     // FM Abhaya's audited mapping table lives beside this application and is
     // imported read-only as a build-time source asset by the legacy encoder.
     server: { fs: { allow: ['..'] } },
@@ -17,7 +19,9 @@ export default defineConfig({
                 theme_color: '#0f172a',
                 background_color: '#f8fafc',
                 display: 'standalone',
-                icons: [{ src: '/assets/singlish_trans.png', sizes: '1300x720', type: 'image/png', purpose: 'any' }],
+                start_url: deploymentBase,
+                scope: deploymentBase,
+                icons: [{ src: "".concat(deploymentBase, "assets/multilingual_trans.png"), sizes: '520x480', type: 'image/png', purpose: 'any' }],
             },
             workbox: { globPatterns: ['**/*.{js,css,html,png,svg,woff2}'] },
         }),

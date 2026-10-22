@@ -5,6 +5,7 @@ import type { ComposerSegment, LegacyLiteralPolicy, SegmentLanguage, WritingMode
 import type { LanguageId } from './engine/types';
 import { defaultPreferences } from './types';
 import type { TypingSpeed } from './types';
+import { languageImages } from './assets';
 import { AnalyzerView } from './ui/AnalyzerView';
 import type { BufferedDocument } from './ui/BufferedUnicodeEditor';
 import { ConvertView } from './ui/ConvertView';
@@ -17,7 +18,6 @@ import type { BufferedComposerSegment } from './ui/MixedComposer';
 import './styles.css';
 
 const legacyTargetForLanguage = { singlish: 'fm-abhaya', tanglish: 'bamini', hinglish: 'kruti-dev-010' } as const;
-const languageImages: Record<LanguageId | 'mixed', string> = { singlish: '/assets/singlish_trans.png', tanglish: '/assets/tanglish_trans.png', hinglish: '/assets/hinglish_trans.png', mixed: '/assets/multilingual_trans.png' };
 const emptySources: Record<LanguageId, string> = { singlish: '', tanglish: '', hinglish: '' };
 const emptyBufferedDocuments: Record<LanguageId, BufferedDocument> = { singlish: { source: '', unicode: '' }, tanglish: { source: '', unicode: '' }, hinglish: { source: '', unicode: '' } };
 const typingPreferenceKey = 'csb-multilingual-typing-preferences';

@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong, faArrowRotateRight, faBolt, faBookOpen, faChevronLeft, faChevronRight, faLayerGroup, faMagnifyingGlass, faShieldHalved, faStopwatch } from '@fortawesome/free-solid-svg-icons';
 import { encodeLegacy, languageRules, legacyTargetLabels } from '../engine';
 import type { LanguageId, LexicalRule } from '../engine/types';
+import { languageImages } from '../assets';
 
 const pageSize = 18;
 const languageLabels: Record<LanguageId, string> = { singlish: 'Singlish · Sinhala', tanglish: 'Tanglish · Tamil', hinglish: 'Hinglish · Hindi' };
-const languageImages: Record<LanguageId, string> = { singlish: '/assets/singlish_trans.png', tanglish: '/assets/tanglish_trans.png', hinglish: '/assets/hinglish_trans.png' };
 const legacyTargetForLanguage = { singlish: 'fm-abhaya', tanglish: 'bamini', hinglish: 'kruti-dev-010' } as const;
 type CategoryId = 'all' | 'primary' | 'vowels' | 'consonants' | 'units' | 'clusters' | 'signs' | 'digits';
 const categories: readonly { id: CategoryId; label: string; matches: (rule: LexicalRule) => boolean }[] = [
